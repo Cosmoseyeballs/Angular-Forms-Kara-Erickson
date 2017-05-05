@@ -1,0 +1,32 @@
+<form novalidate #f="ngForm">
+  <input [ngModel]="name.first" name="first" type="text" placeholder="First Name"><br/>
+  <input [ngModel]="name.last" name="last" type="text"  placeholder="Last name">
+  <div ngModelGroup="account" password-matcher #myaccount="ngModelGroup">
+    <label>Account</label>
+  <input ngModel type="text" name="username" placeholder="Name"><br/>
+  <input ngModel #password="ngModel" type="text" name="password" placeholder="password" required><br/>
+  <input ngModel type="text" name="confirm" placeholder="confirm password" required>
+    
+  </div>
+  <label>newsletter</label>
+  <input ngModel type="radio" value="yes" name="newsletter" ><br/>
+  <input ngModel type="radio" value="no" name="newsletter">
+  <app-switch name="newsletter" ngModel></app-switch>
+  <div>
+    <button>Submit</button>
+  </div>
+</form>
+<p>
+  form: {{f.value|json}}
+</p>
+<p>
+  form status: {{f.control.status }}
+</p>
+<p>
+  password status: {{password.control.status|json}}
+</p>
+
+<p>
+  Account status: {{myaccount.control?.error|json}}
+   Account status: {{myaccount.control?.status|json}}
+</p>

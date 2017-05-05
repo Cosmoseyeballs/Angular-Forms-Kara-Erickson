@@ -1,0 +1,48 @@
+<form novalidate [formGroup]="form">
+  <input type="text" formControlName="first" placeholder="First Name"><br/>
+  <input type="text" formControlName="last" placeholder="Last name">
+  <div formGroupName="account">
+    <label>Account</label>
+  <input type="text" formControlName="username" placeholder="Name"><br/>
+  <input type="text" formControlName="password" placeholder="password"><br/>
+  <input type="text" formControlName="confirm" placeholder="confirm password">
+    
+  </div>
+  <label>newsletter</label>
+  <app-switch formControlName="newsletter"></app-switch>
+  <div>
+    <button>Submit</button>
+  </div>
+</form>
+<p>
+  Form: {{form.value|json}}
+</p>
+<p>
+  Form status: {{form.status|json}}
+</p>
+<p>
+  password status: {{form.get('account.password').status|json}}
+</p>
+<p>
+  Account status: {{form.get('account').errors|json}}
+</p>
+
+
+<!--form novalidate>
+  <input type="text" name="first" placeholder="First Name">
+  <input type="text" name="last" placeholder="Last name">
+  <div>
+    <label>Account</label>
+  <input type="text" name="Username" placeholder="Name">
+  <input type="text" name="password" placeholder="password">
+  <input type="text" name="confirm" placeholder="confirm password">
+    
+  </div>
+  <label>newsletter</label>
+  <input type="radio" value="yes" name="newsletter" >
+  <input type="radio" value="no" name="newsletter">
+  
+  <div>
+    <button>Submit</button>
+  </div>
+</form-->
